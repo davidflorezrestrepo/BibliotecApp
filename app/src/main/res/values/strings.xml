@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BibliotecApp</string>
     <string name="str_search">Buscar</string>
+    <string name="str_settings">Propiedades</string>
 </resources>
