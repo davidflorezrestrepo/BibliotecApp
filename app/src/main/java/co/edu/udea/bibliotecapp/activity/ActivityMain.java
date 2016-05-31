@@ -1,24 +1,30 @@
 package co.edu.udea.bibliotecapp.activity;
 
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import co.edu.udea.bibliotecapp.R;
+import co.edu.udea.bibliotecapp.fragment.NavigationDrawerFragment;
 import co.edu.udea.bibliotecapp.widget.SlidingTabLayout;
 import co.edu.udea.bibliotecapp.widget.ViewPagerAdapter;
 
 public class ActivityMain extends AppCompatActivity {
 
-    Toolbar toolbar;
-    ViewPager pager;
-    ViewPagerAdapter adapter;
-    SlidingTabLayout tabs;
-    CharSequence Titles[] = {"Resultados", "Favoritos"};
-    int Numboftabs = 2;
+    private Toolbar toolbar;
+    private ViewPager pager;
+    private ViewPagerAdapter adapter;
+    private SlidingTabLayout tabs;
+    private CharSequence Titles[] = {"Resultados", "Favoritos"};
+    private int Numboftabs = 2;
+    private ListView listView;
+    private String[] mTitlesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +32,18 @@ public class ActivityMain extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        mTitlesFragment = getResources().getStringArray(R.array.titles_array);
+        listView = (ListView) findViewById(R.id.left_drawer);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        NavigationDrawerFragment drawerFragment= (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout)findViewById(R.id.drawer_layout), toolbar);
+
+        listView.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.drawer_list_item, mTitlesFragment));
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);
 
