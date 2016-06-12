@@ -1,7 +1,9 @@
 package co.edu.udea.bibliotecapp.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,12 +27,18 @@ public class Search extends AppCompatActivity {
         buttonBuscar = (Button) findViewById(R.id.buttonBuscar);
         editTextPalabraClave = (EditText) findViewById(R.id.palabraClave);
 
-        buttonBuscar.setOnClickListener(new View.OnClickListener() {
+    }
 
-            public void onClick(View arg0) {
-                /*BusquedaWS busquedaWS = new BusquedaWS(editTextPalabraClave.getText().toString(), new ArrayList<Libro>());
-                busquedaWS.execute();*/
-            }
-        });
+    public void onClickBuscar(View arg0) {
+        finish();
+    }
+
+    @Override
+    public void finish() {
+        Intent data = new Intent();
+        String query = String.valueOf(editTextPalabraClave.getText());
+        data.putExtra("queryBook", query);
+        setResult(RESULT_OK, data);
+        super.finish();
     }
 }

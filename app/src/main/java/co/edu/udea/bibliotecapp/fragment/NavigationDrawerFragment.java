@@ -9,11 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.lang.reflect.Array;
 
 import co.edu.udea.bibliotecapp.R;
 
@@ -95,5 +95,9 @@ public class NavigationDrawerFragment extends Fragment {
     public static String readFromPreferences(Context context, String preferenceName, String preferenceValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, context.MODE_PRIVATE);
         return sharedPreferences.getString(preferenceName, preferenceValue);
+    }
+
+    public void closeDrawer(){
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
     }
 }

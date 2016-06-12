@@ -73,6 +73,7 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
             androidHttpTransport.call(SOAP_ACTION, envelope);
             SoapObject response = (SoapObject) envelope.getResponse();
             String respuesta = ((SoapObject)response.getProperty(0)).getProperty("value").toString();
+            Log.d("RESULTADO", "buscarLibro: "  + respuesta);
             libros = new Gson().fromJson(respuesta, new TypeToken<List<Libro>>(){}.getType());
         } catch (Exception e) {
             e.printStackTrace();

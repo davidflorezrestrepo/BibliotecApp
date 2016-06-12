@@ -25,6 +25,7 @@ public class TabSearch extends Fragment {
 
     private RecyclerView recyclerListBooks;
     private AdapterSearchResults adapterSearchResults;
+    public static String QUERY_STRING = "QUERY";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,12 +36,12 @@ public class TabSearch extends Fragment {
 
         adapterSearchResults = new AdapterSearchResults(getActivity());
         recyclerListBooks.setAdapter(adapterSearchResults);
-        searchBooks("Cien años de soledad");
-        
+        //searchBooks("Cien años de soledad");
+
         return v;
     }
 
-    private void searchBooks(String query) {
+    public void searchBooks(String query) {
         BusquedaWS busquedaWS = new BusquedaWS(query, adapterSearchResults);
         busquedaWS.execute();
 

@@ -15,8 +15,10 @@ import co.edu.udea.bibliotecapp.fragment.TabSearch;
  */
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    CharSequence Titles[];
-    int NumbOfTabs;
+    private CharSequence Titles[];
+    private int NumbOfTabs;
+    private TabSearch tab1;
+    private TabFavorites tab2;
 
     public ViewPagerAdapter(FragmentManager fm, CharSequence mTitles[], int mNumbOfTabsumb) {
         super(fm);
@@ -28,12 +30,16 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         if (position == 0) {
-            TabSearch tab1 = new TabSearch();
+            tab1 = new TabSearch();
             return tab1;
         } else {
-            TabFavorites tab2 = new TabFavorites();
+            tab2 = new TabFavorites();
             return tab2;
         }
+    }
+
+    public void setQuery(String query){
+        tab1.searchBooks(query);
     }
 
     @Override
