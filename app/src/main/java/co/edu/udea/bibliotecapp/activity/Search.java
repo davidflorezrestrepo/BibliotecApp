@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 import co.edu.udea.bibliotecapp.R;
+import co.edu.udea.bibliotecapp.data.Libro;
 import co.edu.udea.bibliotecapp.soap.BusquedaWS;
 
 public class Search extends AppCompatActivity {
@@ -25,8 +28,8 @@ public class Search extends AppCompatActivity {
         buttonBuscar.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View arg0) {
-                BusquedaWS busquedaWS = new BusquedaWS(editTextPalabraClave.getText().toString());
-                busquedaWS.execute();
+                /*BusquedaWS busquedaWS = new BusquedaWS(editTextPalabraClave.getText().toString(), new ArrayList<Libro>());
+                busquedaWS.execute();*/
             }
         });
     }

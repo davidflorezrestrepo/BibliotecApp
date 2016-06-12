@@ -1,6 +1,7 @@
 package co.edu.udea.bibliotecapp.soap;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,8 +12,10 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import co.edu.udea.bibliotecapp.adapter.AdapterSearchResults;
 import co.edu.udea.bibliotecapp.data.Libro;
 
 public class BusquedaWS extends AsyncTask<String, Void, Void> {
@@ -25,8 +28,10 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
 
     private String busqueda;
     private List<Libro> libros;
+    private AdapterSearchResults adapterSearchResults;
 
-    public BusquedaWS(String busqueda){
+    public BusquedaWS(String busqueda, AdapterSearchResults adapterSearchResults){
+        this.adapterSearchResults = adapterSearchResults;
         this.busqueda = busqueda;
     }
 
@@ -34,6 +39,11 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
     protected Void doInBackground(String... params) {
         buscarLibro(this.busqueda);
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(Void result) {
+        adapterSearchResults.setBooksList((ArrayList<Libro>) libros);
     }
 
     public void buscarLibro(String busqueda){
@@ -64,7 +74,6 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
             SoapObject response = (SoapObject) envelope.getResponse();
             String respuesta = ((SoapObject)response.getProperty(0)).getProperty("value").toString();
             libros = new Gson().fromJson(respuesta, new TypeToken<List<Libro>>(){}.getType());
-
         } catch (Exception e) {
             e.printStackTrace();
         }

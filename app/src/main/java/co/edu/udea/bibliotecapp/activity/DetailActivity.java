@@ -35,7 +35,7 @@ public class DetailActivity extends AppCompatActivity {
 
         imageBook = (ImageView) findViewById(R.id.imageViewBook);
 
-        title = (TextView) findViewById(R.id.textViewTitleDesc);
+        title = (TextView) findViewById(R.id.textTitleDesc);
         libro.setTitulo("Cien años de soledad");
         title.setText(libro.getTitulo());
 
