@@ -47,6 +47,12 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
     }
 
     public void buscarLibro(String busqueda){
+
+        Log.d("BUSQUEDA", "buscarLibro: " + busqueda);
+        if (busqueda== null || busqueda.isEmpty()){
+            return;
+        }
+
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
         PropertyInfo busquedaInfo = new PropertyInfo();

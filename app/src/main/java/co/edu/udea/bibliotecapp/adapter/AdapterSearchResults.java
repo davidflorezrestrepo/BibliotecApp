@@ -21,18 +21,22 @@ public class AdapterSearchResults extends RecyclerView.Adapter<AdapterSearchResu
     private LayoutInflater mLayoutInflater;
     private ArrayList<Libro> listBooks = new ArrayList<>();
 
-    public AdapterSearchResults(Context context){
+    public AdapterSearchResults(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
     }
 
-    public void setBooksList(ArrayList<Libro> listBooks){
+    public void setBooksList(ArrayList<Libro> listBooks) {
         this.listBooks = listBooks;
-        notifyItemRangeChanged(0, listBooks.size());
+        if (listBooks == null || listBooks.isEmpty()) {
+            notifyItemRangeChanged(0, 0);
+        } else {
+            notifyItemRangeChanged(0, listBooks.size());
+        }
     }
 
     @Override
     public ViewHolderSearchResults onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(R.layout.book,parent,false);
+        View view = mLayoutInflater.inflate(R.layout.book, parent, false);
         ViewHolderSearchResults viewHolder = new ViewHolderSearchResults(view);
         return viewHolder;
     }
@@ -47,20 +51,20 @@ public class AdapterSearchResults extends RecyclerView.Adapter<AdapterSearchResu
 
     @Override
     public int getItemCount() {
-        return listBooks.size();
+        return listBooks==null ? 0: listBooks.size();
     }
 
-    static class ViewHolderSearchResults extends RecyclerView.ViewHolder{
+    static class ViewHolderSearchResults extends RecyclerView.ViewHolder {
 
         private ImageView imageBook;
         private TextView textTitle;
         private TextView textAuthor;
 
-        public ViewHolderSearchResults(View itemView){
+        public ViewHolderSearchResults(View itemView) {
             super(itemView);
 
             imageBook = (ImageView) itemView.findViewById(R.id.imageBook);
-            textTitle = (TextView) itemView.findViewById(R.id.textTitleDesc);
+            textTitle = (TextView) itemView.findViewById(R.id.textTitle);
             textAuthor = (TextView) itemView.findViewById(R.id.textAuthor);
 
         }

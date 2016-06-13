@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.TabSearch">
 
     <ImageView
         android:id="@+id/imageBook"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
         android:src="@mipmap/book" />
 
     <TextView
-        android:id="@+id/textTitleDesc"
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripción Título"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/imageBook" />
 
@@ -25,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="Descripción Autores"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/textTitleDesc"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textTitle"
         android:layout_toEndOf="@+id/imageBook" />
 </RelativeLayout>

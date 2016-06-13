@@ -4,6 +4,7 @@ package co.edu.udea.bibliotecapp.widget;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
 
 import co.edu.udea.bibliotecapp.R;
@@ -39,6 +40,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     public void setQuery(String query){
+        Log.d("QUERY", "setQuery: " + query);
         tab1.searchBooks(query);
     }
 

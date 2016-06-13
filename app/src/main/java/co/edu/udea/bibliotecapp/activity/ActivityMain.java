@@ -124,7 +124,7 @@ public class ActivityMain extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             if (data.hasExtra("queryBook")) {
-                String s =data.getExtras().getString("queryBook");
+                String s = data.getExtras().getString("queryBook");
                 Log.d("DATOS", "onActivityResult: " + s);
                 adapter.setQuery(s);
                 drawerFragment.closeDrawer();
