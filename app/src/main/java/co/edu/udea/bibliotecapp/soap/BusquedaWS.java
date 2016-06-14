@@ -30,7 +30,7 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
     private List<Libro> libros;
     private AdapterSearchResults adapterSearchResults;
 
-    public BusquedaWS(String busqueda, AdapterSearchResults adapterSearchResults){
+    public BusquedaWS(String busqueda, AdapterSearchResults adapterSearchResults) {
         this.adapterSearchResults = adapterSearchResults;
         this.busqueda = busqueda;
     }
@@ -46,10 +46,9 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
         adapterSearchResults.setBooksList((ArrayList<Libro>) libros);
     }
 
-    public void buscarLibro(String busqueda){
+    public void buscarLibro(String busqueda) {
 
-        Log.d("BUSQUEDA", "buscarLibro: " + busqueda);
-        if (busqueda== null || busqueda.isEmpty()){
+        if (busqueda == null || busqueda.isEmpty()) {
             return;
         }
 
@@ -78,9 +77,9 @@ public class BusquedaWS extends AsyncTask<String, Void, Void> {
         try {
             androidHttpTransport.call(SOAP_ACTION, envelope);
             SoapObject response = (SoapObject) envelope.getResponse();
-            String respuesta = ((SoapObject)response.getProperty(0)).getProperty("value").toString();
-            Log.d("RESULTADO", "buscarLibro: "  + respuesta);
-            libros = new Gson().fromJson(respuesta, new TypeToken<List<Libro>>(){}.getType());
+            String respuesta = ((SoapObject) response.getProperty(0)).getProperty("value").toString();
+            libros = new Gson().fromJson(respuesta, new TypeToken<List<Libro>>() {
+            }.getType());
         } catch (Exception e) {
             e.printStackTrace();
         }

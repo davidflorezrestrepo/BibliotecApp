@@ -36,8 +36,6 @@ public class TabSearch extends Fragment {
 
         adapterSearchResults = new AdapterSearchResults(getActivity());
         recyclerListBooks.setAdapter(adapterSearchResults);
-        //searchBooks("Cien años de soledad");
-
         return v;
     }
 
