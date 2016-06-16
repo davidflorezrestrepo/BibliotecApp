@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent">-->
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".activity.ActivityMain">
 
@@ -114,21 +114,21 @@
             android:text="Disponibilidad:"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textViewAvaliaDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textViewAvailability"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />-->
 
         <ExpandableListView
             android:id="@+id/listAvailabExp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/textViewAvaliaDesc" />
+            android:layout_below="@+id/textViewAvailability" />
 
     </RelativeLayout>
 
-</ScrollView>
+<!--</ScrollView>-->

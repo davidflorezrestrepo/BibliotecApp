@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView title;
     private TextView author;
     private TextView isbn;
-    private TextView availability;
+    //private TextView availability;
 
     private LibroConDetalle libro = new LibroConDetalle();
     private Autor autor = new Autor();
@@ -48,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         title = (TextView) findViewById(R.id.textTitleDesc);
         author = (TextView) findViewById(R.id.textViewAuthorDesc);
         isbn = (TextView) findViewById(R.id.textViewISBNDesc);
-        availability = (TextView) findViewById(R.id.textViewAvaliaDesc);
+        //availability = (TextView) findViewById(R.id.textViewAvaliaDesc);
         expListView = (ExpandableListView) findViewById(R.id.listAvailabExp);
 
         Bundle extras = getIntent().getExtras();
