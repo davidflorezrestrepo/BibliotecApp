@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragment.TabSearch">
+
+    <View
+        android:id="@+id/barraSup"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#FFFFFFFF" />
 
     <ImageView
         android:id="@+id/imageBook"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
+        android:layout_width="74dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/barraSup"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:src="@mipmap/book" />
 
     <TextView
         android:id="@+id/textTitle"
+        style="@style/TextAppearance.AppCompat.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageBook"
+        android:layout_below="@id/barraSup"
+        android:layout_marginLeft="56dp"
+        android:alpha="0.87"
+        android:gravity="right"
+        android:padding="4dp"
         android:text="Descripción Título"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageBook" />
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/textAuthor"
-        android:layout_width="wrap_content"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/textTitle"
+        android:gravity="right"
+        android:layout_alignRight="@id/imageBook"
+        android:alpha="0.87"
+        android:padding="16dp"
         android:text="Descripción Autores"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/textTitle"
-        android:layout_toEndOf="@+id/imageBook" />
+        android:textSize="14sp" />
+
 </RelativeLayout>

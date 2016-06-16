@@ -1,7 +1,9 @@
 package co.edu.udea.bibliotecapp.soap;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -13,8 +15,11 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import co.edu.udea.bibliotecapp.adapter.ExpandableListAdapter;
 import co.edu.udea.bibliotecapp.data.Autor;
 import co.edu.udea.bibliotecapp.data.Disponibilidad;
 import co.edu.udea.bibliotecapp.data.Libro;
@@ -32,17 +37,23 @@ public class DetalleWS extends AsyncTask<String, Void, Void> {
     private List<LibroConDetalle> librosConDetalle;
     private LibroConDetalle libroConDetalle;
     private TextView title;
-    TextView author;
-    TextView isbn;
-    TextView avai;
+    private TextView author;
+    private TextView isbn;
+    private ExpandableListView listView;
+    private ExpandableListAdapter listAdapter;
+    private List<String> listDataHeader;
+    private HashMap<String, List<String>> listDataChild;
+    private Context mContext;
 
-    public DetalleWS(String titleno, TextView title, TextView author, TextView isbn, TextView avai) {
+    public DetalleWS(String titleno, TextView title, TextView author, TextView isbn, ExpandableListView listView, Context context) {
         this.titleno = titleno;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.avai = avai;
+        this.listView = listView;
+        this.mContext = context;
     }
+
 
     @Override
     protected Void doInBackground(String... params) {
@@ -54,7 +65,9 @@ public class DetalleWS extends AsyncTask<String, Void, Void> {
     protected void onPostExecute(Void result) {
         Autor autor;
         Disponibilidad disponibilidad;
-        String disp = "";
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+        List<String> value = new ArrayList<String>();
         if (librosConDetalle != null && !librosConDetalle.isEmpty()) {
             libroConDetalle = librosConDetalle.get(0);
             title.setText(libroConDetalle.getTitulo());
@@ -63,12 +76,16 @@ public class DetalleWS extends AsyncTask<String, Void, Void> {
             isbn.setText(libroConDetalle.getIsbn());
             for (int i = 0; i < libroConDetalle.getDisponibilidad().size(); i++) {
                 disponibilidad = libroConDetalle.getDisponibilidad().get(i);
-                disp += "LUGAR " + (i+1) + "\n-Lugar: " + disponibilidad.getLocalizacion() + "\n-Estante: " + disponibilidad.getEstante()
-                        + "\n-Signatura: " + disponibilidad.getSignatura() + "\n-Estado: " + disponibilidad.getEstado() +
-                        "\nCategoria: " + disponibilidad.getCategoria() + "\n";
+                listDataHeader.add(disponibilidad.getLocalizacion());
+                value.add("Estante: " + disponibilidad.getEstante());
+                value.add("Signatura: " + disponibilidad.getSignatura());
+                value.add("Estado: " + disponibilidad.getEstado());
+                value.add("Categoria: " + disponibilidad.getCategoria());
+                listDataChild.put(listDataHeader.get(i), value);
             }
-            avai.setText(disp);
 
+            listAdapter = new ExpandableListAdapter(mContext, listDataHeader, listDataChild);
+            listView.setAdapter(listAdapter);
         }
     }
 

@@ -5,5 +5,4 @@
     android:background="#EEE"
     tools:context=".fragment.NavigationDrawerFragment">
 
-
 </RelativeLayout>

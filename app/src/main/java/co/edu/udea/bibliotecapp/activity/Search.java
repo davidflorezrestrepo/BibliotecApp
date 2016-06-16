@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,17 @@ public class Search extends AppCompatActivity {
 
         buttonBuscar = (Button) findViewById(R.id.buttonBuscar);
         editTextPalabraClave = (EditText) findViewById(R.id.palabraClave);
+
+        editTextPalabraClave.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 

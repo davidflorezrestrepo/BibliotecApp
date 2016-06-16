@@ -1,121 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ActivityMain">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/imageViewBook"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        android:layout_above="@+id/textViewISBNDesc"
-        android:layout_alignEnd="@+id/textViewAvailability"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tool_bar"
-        android:src="@mipmap/book" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tool_bar"
-        android:layout_marginTop="41dp"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="Título:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:orientation="vertical"
+        tools:context=".activity.ActivityMain">
 
-    <TextView
-        android:id="@+id/textTitleDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTitle"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="Descripción Título"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textViewAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textTitleDesc"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="Autor(es):"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <ImageView
+            android:id="@+id/imageViewBook"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_above="@+id/textViewISBNDesc"
+            android:layout_alignEnd="@+id/textViewAvailability"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tool_bar"
+            android:src="@mipmap/book" />
 
-    <TextView
-        android:id="@+id/textViewAuthorDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewAuthor"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="Descripción Autores"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginTop="41dp"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="Título:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textViewISBN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewAuthorDesc"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="ISBN:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/textTitleDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTitle"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="Descripción Título"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/textViewISBNDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewISBN"
-        android:layout_toEndOf="@+id/imageViewBook"
-        android:text="Descripción ISBN"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/textViewAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textTitleDesc"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="Autor(es):"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Nota(s):"
-        android:id="@+id/textViewNotes"
-        android:layout_below="@+id/imageViewBook"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/textViewAuthorDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAuthor"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="Descripción Autores"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Descripción Notas"
-        android:id="@+id/textViewNotesDesc"
-        android:layout_below="@+id/textViewNotes"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />-->
+        <TextView
+            android:id="@+id/textViewISBN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAuthorDesc"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="ISBN:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textViewAvailability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewISBNDesc"
-        android:layout_marginTop="41dp"
-        android:text="Disponibilidad:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/textViewISBNDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewISBN"
+            android:layout_toEndOf="@+id/imageViewBook"
+            android:text="Descripción ISBN"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/textViewAvaliaDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewAvailability"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nota(s):"
+            android:id="@+id/textViewNotes"
+            android:layout_below="@+id/imageViewBook"
+            android:layout_alignParentStart="true" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Descripción Notas"
+            android:id="@+id/textViewNotesDesc"
+            android:layout_below="@+id/textViewNotes"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />-->
+
+        <TextView
+            android:id="@+id/textViewAvailability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewISBNDesc"
+            android:layout_marginTop="41dp"
+            android:text="Disponibilidad:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textViewAvaliaDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewAvailability"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ExpandableListView
+            android:id="@+id/listAvailabExp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textViewAvaliaDesc" />
+
+    </RelativeLayout>
+
+</ScrollView>
